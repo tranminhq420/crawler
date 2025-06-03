@@ -1,0 +1,14 @@
+Content-Length: 28563
+Server: nginx/1.10.3 (Ubuntu)
+Date: Mon, 02 Jun 2025 01:14:35 GMT
+Content-Type: text/html; charset=UTF-8
+Vary: X-Forwarded-Proto,Accept-Encoding
+X-Powered-By: PHP/7.4.33
+Expires: Wed, 11 Jan 1984 05:00:00 GMT
+Cache-Control: no-cache, must-revalidate, max-age=0
+Pragma: no-cache
+Link: <https://www.bhdstar.vn/wp-json/>; rel="https://api.w.org/"
+Link: <https://www.bhdstar.vn/wp-json/wp/v2/pages/2>; rel="alternate"; type="application/json"
+Link: <https://www.bhdstar.vn/>; rel=shortlink
+Last-Modified: Mon, 02 Jun 2025 01:14:35 GMT
+Content-Encoding: gzip

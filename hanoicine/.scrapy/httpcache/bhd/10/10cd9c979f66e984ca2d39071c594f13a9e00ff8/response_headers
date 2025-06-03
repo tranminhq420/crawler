@@ -1,0 +1,14 @@
+Content-Length: 0
+Server: nginx/1.10.3 (Ubuntu)
+Date: Mon, 02 Jun 2025 01:03:58 GMT
+Content-Type: text/html; charset=UTF-8
+Vary: X-Forwarded-Proto,Accept-Encoding
+X-Powered-By: PHP/7.4.33
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Set-Cookie: wordpress_sec_b0519f4f29df6fe4169d3ce7e4751811=quan.tm1103%40gmail.com%7C1750035838%7CaijpIGg3lW1hnlpy6Xyt2XYzhbLU8vaJ02zcN3LQRpg%7C58a88c12d43af0acbc170aa1e40d7f40b406cb0a905c6ad6fe1876ddd20b4c27; expires=Mon, 16-Jun-2025 13:03:58 GMT; Max-Age=1252800; path=/wp-content/plugins; secure; HttpOnly
+Set-Cookie: wordpress_sec_b0519f4f29df6fe4169d3ce7e4751811=quan.tm1103%40gmail.com%7C1750035838%7CaijpIGg3lW1hnlpy6Xyt2XYzhbLU8vaJ02zcN3LQRpg%7C58a88c12d43af0acbc170aa1e40d7f40b406cb0a905c6ad6fe1876ddd20b4c27; expires=Mon, 16-Jun-2025 13:03:58 GMT; Max-Age=1252800; path=/wp-admin; secure; HttpOnly
+Set-Cookie: wordpress_logged_in_b0519f4f29df6fe4169d3ce7e4751811=quan.tm1103%40gmail.com%7C1750035838%7CaijpIGg3lW1hnlpy6Xyt2XYzhbLU8vaJ02zcN3LQRpg%7Cd4583cfeddd3bf00866c949a3d3b6603f7063a33104e15face11d8446f7b35e8; expires=Mon, 16-Jun-2025 13:03:58 GMT; Max-Age=1252800; path=/; secure; HttpOnly
+X-Redirect-By: WordPress
+Location: /tai-khoan/?login

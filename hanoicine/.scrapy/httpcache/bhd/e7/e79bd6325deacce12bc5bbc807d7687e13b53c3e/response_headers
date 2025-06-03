@@ -1,0 +1,14 @@
+Content-Length: 30
+Server: nginx/1.10.3 (Ubuntu)
+Date: Mon, 02 Jun 2025 02:25:32 GMT
+Content-Type: application/json; charset=UTF-8
+Vary: X-Forwarded-Proto,Accept-Encoding
+X-Powered-By: PHP/7.4.33
+Set-Cookie: PHPSESSID=069a4d661533c1d81fb634b6f5bdc12f; path=/
+Expires: Wed, 11 Jan 1984 05:00:00 GMT
+Cache-Control: no-cache, must-revalidate, max-age=0
+Pragma: no-cache
+X-Robots-Tag: noindex
+X-Content-Type-Options: nosniff
+Referrer-Policy: strict-origin-when-cross-origin
+X-Frame-Options: SAMEORIGIN

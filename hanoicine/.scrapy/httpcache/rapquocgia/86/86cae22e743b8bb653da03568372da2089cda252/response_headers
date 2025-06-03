@@ -1,0 +1,16 @@
+Date: Tue, 03 Jun 2025 07:38:33 GMT
+Content-Type: text/html; charset=utf-8
+Cf-Ray: 949d88187fe404ea-HKG
+Server: cloudflare
+Content-Encoding: gzip
+Vary: RSC, Next-Router-State-Tree, Next-Router-Prefetch, Accept-Encoding
+Cache-Control: private, no-cache, no-store, max-age=0, must-revalidate
+X-Kong-Upstream-Latency: 26
+X-Kong-Proxy-Latency: 0
+Via: kong/3.3.1
+Cf-Cache-Status: DYNAMIC
+Report-To: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v4?s=N%2BxWGsxW3ISDvkEHxRFdPsc8Yajn4t8uZs0dXmukvWUXCg3oOVZhSKcIsCCwGFAdakwdW0Agkbgo28qx9DFJ9ADinYYnEpCin3A2i6nLtB7fHuWvTFaDsRzMJxsi8tN7ll6f7wRAoWUPFQ%3D%3D"}],"group":"cf-nel","max_age":604800}
+Nel: {"success_fraction":0,"report_to":"cf-nel","max_age":604800}
+X-Powered-By: Daniel Le
+Alt-Svc: h3=":443"; ma=86400
+Server-Timing: cfL4;desc="?proto=TCP&rtt=22785&min_rtt=21621&rtt_var=6763&sent=4&recv=6&lost=0&retrans=0&sent_bytes=2862&recv_bytes=925&delivery_rate=127309&cwnd=249&unsent_bytes=0&cid=11a13b549c9c4100&ts=126&x=0"

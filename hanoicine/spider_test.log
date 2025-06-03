@@ -1,0 +1,79 @@
+2025-06-02 11:42:24 [scrapy.utils.log] INFO: Scrapy 2.11.2 started (bot: hanoicine)
+2025-06-02 11:42:24 [scrapy.utils.log] INFO: Versions: lxml 5.3.1.0, libxml2 2.12.9, cssselect 1.2.0, parsel 1.9.1, w3lib 2.2.1, Twisted 24.11.0, Python 3.8.10 (default, Mar 18 2025, 20:04:55) - [GCC 9.4.0], pyOpenSSL 25.0.0 (OpenSSL 3.4.1 11 Feb 2025), cryptography 44.0.2, Platform Linux-6.6.87.1-microsoft-standard-WSL2-x86_64-with-glibc2.29
+2025-06-02 11:42:24 [bhd] INFO: 🍪 Using proven working cookie string from successful test
+2025-06-02 11:42:24 [bhd] INFO: 🎯 UserSessionId from working cookies: b4a4dcf02c8510219e8d2e5619ea4b6c
+2025-06-02 11:42:24 [bhd] INFO: ✅ Loaded 7 working cookies
+2025-06-02 11:42:24 [bhd] INFO: 📋 Working cookies loaded:
+2025-06-02 11:42:24 [bhd] INFO:   - wordpress_sec_b0519f4f29df6fe4169d3ce7e4751811: quan.tm1103%40gmail.com%7C1748...
+2025-06-02 11:42:24 [bhd] INFO:   - _ga: GA1.1.801616380.1748826725... (ANALYTICS)
+2025-06-02 11:42:24 [bhd] INFO:   - PHPSESSID: b4a4dcf02c8510219e8d2e5619ea4b... (SESSION ID)
+2025-06-02 11:42:24 [bhd] INFO:   - _ldapp_bhd_currentLocation: ha-noi... (LOCATION - CRITICAL!)
+2025-06-02 11:42:24 [bhd] INFO:   - wordpress_test_cookie: WP%20Cookie%20check... (WP TEST)
+2025-06-02 11:42:24 [bhd] INFO:   - wordpress_logged_in_b0519f4f29df6fe4169d3ce7e4751811: quan.tm1103%40gmail.com%7C1748... (AUTH)
+2025-06-02 11:42:24 [bhd] INFO:   - _ga_VPJE22YS3J: GS1.1.1748834988.3.1.174883743... (ANALYTICS)
+2025-06-02 11:42:24 [scrapy.addons] INFO: Enabled addons:
+[]
+2025-06-02 11:42:24 [scrapy.extensions.telnet] INFO: Telnet Password: 66afa008f0e5e09a
+2025-06-02 11:42:24 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats']
+2025-06-02 11:42:24 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'hanoicine',
+ 'DOWNLOAD_DELAY': 3,
+ 'HTTPCACHE_ENABLED': True,
+ 'LOG_LEVEL': 'INFO',
+ 'NEWSPIDER_MODULE': 'hanoicine.spiders',
+ 'REQUEST_FINGERPRINTER_IMPLEMENTATION': '2.7',
+ 'SPIDER_MODULES': ['hanoicine.spiders'],
+ 'USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 '
+               '(KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36'}
+2025-06-02 11:42:24 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats',
+ 'scrapy.downloadermiddlewares.httpcache.HttpCacheMiddleware']
+2025-06-02 11:42:24 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2025-06-02 11:42:24 [scrapy.middleware] INFO: Enabled item pipelines:
+['hanoicine.pipelines.SQLAlchemyPipeline']
+2025-06-02 11:42:24 [scrapy.core.engine] INFO: Spider opened
+2025-06-02 11:42:24 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2025-06-02 11:42:24 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2025-06-02 11:42:24 [bhd] INFO: Received 56 URLs to process
+2025-06-02 11:42:24 [bhd] INFO: 🚀 Using working cookies - skipping login process
+2025-06-02 11:42:24 [scrapy.core.engine] ERROR: Error while obtaining start requests
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/scrapy/core/engine.py", line 182, in _next_request
+    request = next(self.slot.start_requests)
+  File "/home/tranminhq420/cineme-crawler/hanoicine/hanoicine/spiders/movie_spider.py", line 80, in start_requests
+    yield scrapy.Request(
+  File "/usr/local/lib/python3.8/dist-packages/scrapy/http/request/__init__.py", line 93, in __init__
+    self._set_url(url)
+  File "/usr/local/lib/python3.8/dist-packages/scrapy/http/request/__init__.py", line 143, in _set_url
+    raise ValueError(f"Missing scheme in request url: {self._url}")
+ValueError: Missing scheme in request url: %5B
+2025-06-02 11:42:24 [scrapy.core.engine] INFO: Closing spider (finished)
+2025-06-02 11:42:24 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'elapsed_time_seconds': 0.003747,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2025, 6, 2, 4, 42, 24, 532679, tzinfo=datetime.timezone.utc),
+ 'log_count/ERROR': 1,
+ 'log_count/INFO': 12,
+ 'memusage/max': 81821696,
+ 'memusage/startup': 81821696,
+ 'start_time': datetime.datetime(2025, 6, 2, 4, 42, 24, 528932, tzinfo=datetime.timezone.utc)}
+2025-06-02 11:42:24 [scrapy.core.engine] INFO: Spider closed (finished)

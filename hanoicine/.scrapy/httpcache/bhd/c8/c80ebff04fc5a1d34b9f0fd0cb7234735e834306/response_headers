@@ -1,0 +1,14 @@
+Content-Length: 325
+Server: nginx/1.10.3 (Ubuntu)
+Date: Sun, 01 Jun 2025 18:18:32 GMT
+Content-Type: application/json; charset=UTF-8
+Vary: X-Forwarded-Proto,Accept-Encoding
+X-Powered-By: PHP/7.4.33
+Expires: Wed, 11 Jan 1984 05:00:00 GMT
+Cache-Control: no-cache, must-revalidate, max-age=0
+Pragma: no-cache
+X-Robots-Tag: noindex
+X-Content-Type-Options: nosniff
+Referrer-Policy: strict-origin-when-cross-origin
+X-Frame-Options: SAMEORIGIN
+Content-Encoding: gzip
