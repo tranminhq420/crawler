@@ -8,6 +8,7 @@ from scrapy.item import Item, Field
 
 class HanoicineItem(Item):
     id = Field()
+    rqg_film_id = Field()  # Rapquocgia film ID
     title = Field()
     age_limit = Field()
     movie_type = Field()  # Phụ đề/Lồng tiếng

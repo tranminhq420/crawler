@@ -41,6 +41,7 @@ class Film(Base):
     __tablename__ = "films"
 
     id = Column(Integer, primary_key=True)
+    rqg_film_id = Column(Integer, nullable=True)  # Rapquocgia film ID
     title = Column(String(100), nullable=True)
     age_limit = Column(String(100), nullable=True)
     movie_type = Column(String(100), nullable=True)

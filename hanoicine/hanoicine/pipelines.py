@@ -40,6 +40,19 @@ class SQLAlchemyPipeline:
 
         if spider.name == "hanoicine":
             return self.process_hanoi_cine_data(item)
+        elif spider.name == "rapquocgia":
+            if isinstance(item, HanoicineItem):
+                print("Routing to process_rapquocgia_film")
+                return self.process_rapquocgia_film(item)
+            elif isinstance(item, SessionItem):
+                print("Routing to process_rapquocgia_session")
+                return self.process_rapquocgia_session(item)
+            elif isinstance(item, TheaterItem):
+                print("Routing to process_rapquocgia_theater")
+                return self.process_rapquocgia_theater(item)
+            else:
+                print(f"Unknown item type for rapquocgia spider: {type(item)}")
+                return item
         elif spider.name == "bhd":
             if isinstance(item, TheaterItem):
                 print("Routing to process_bhd_theater")
@@ -89,7 +102,7 @@ class SQLAlchemyPipeline:
 
             # Check if film already exists
             existing_film = session.query(Film).filter(
-                Film.id == item.get('id')).first()
+                Film.title == item.get('title')).first()
 
             if not existing_film:
                 film = Film()
@@ -120,6 +133,170 @@ class SQLAlchemyPipeline:
             'movie_id': item.get('id'),  # This contains the data-id which becomes the f parameter
             'title': item.get('title')
         })
+        return item
+
+    def process_rapquocgia_film(self, item):
+        """Process film items from rapquocgia spider"""
+        print(f"=== PIPELINE: Processing rapquocgia film item ===")
+        print(f"Film ID: {item.get('id')}")
+        print(f"Film Title: {item.get('title')}")
+
+        session = self.Session()
+
+        try:
+            # Check if film already exists by rapquocgia film ID
+            rqg_film_id = item.get('rqg_film_id')
+            existing_film = session.query(Film).filter(Film.rqg_film_id == rqg_film_id).first()
+
+            if existing_film:
+                print(f"Film '{item.get('title')}' (ID: {rqg_film_id}) already exists in database")
+                # Update existing film with new data
+                existing_film.title = item.get('title')
+                existing_film.age_limit = item.get('age_limit')
+                existing_film.movie_type = item.get('movie_type')
+                existing_film.format = item.get('format')
+                existing_film.genre = item.get('genre')
+                existing_film.image_url = item.get('image_url')
+                existing_film.booking_url = item.get('movie_url')
+                print(f"Updated existing film: {existing_film.title}")
+            else:
+                print(f"Creating new film: '{item.get('title')}' (ID: {rqg_film_id})")
+                film = Film()
+                film.rqg_film_id = rqg_film_id
+                film.title = item.get('title')
+                film.age_limit = item.get('age_limit')
+                film.movie_type = item.get('movie_type')
+                film.format = item.get('format')
+                film.genre = item.get('genre')
+                film.image_url = item.get('image_url')
+                film.booking_url = item.get('movie_url')
+                
+                session.add(film)
+                print(f"Added new film: {film.title} (ID: {rqg_film_id})")
+
+            session.commit()
+            print(f"Successfully saved film: {item.get('title')}")
+
+        except Exception as e:
+            print(f"ERROR in process_rapquocgia_film: {e}")
+            import traceback
+            traceback.print_exc()
+            session.rollback()
+            raise
+        finally:
+            session.close()
+
+        return item
+
+    def process_rapquocgia_session(self, item):
+        """Process session items from rapquocgia spider"""
+        print(f"=== PIPELINE: Processing rapquocgia session item ===")
+        print(f"Session ID: {item.get('sessionID')}")
+        print(f"Film ID: {item.get('filmID')}")
+
+        session = self.Session()
+
+        try:
+            # Check if session already exists
+            session_id = item.get('sessionID')
+            existing_session = session.query(Screentime).filter(
+                Screentime.name == str(session_id)
+            ).first()
+
+            if existing_session:
+                print(f"Session {session_id} already exists in database, skipping")
+                return item
+
+            screening = Screentime()
+            screening.name = str(session_id)
+            screening.format = item.get('format')
+            
+            # Parse ProjectTime (e.g., "2025-06-03T14:45:00")
+            time_str = item.get('time')
+            if time_str:
+                try:
+                    # Extract time from datetime string
+                    from datetime import datetime
+                    dt = datetime.fromisoformat(time_str.replace('Z', ''))
+                    screening.time = dt.time()
+                    screening.date = dt.date()
+                except (ValueError, AttributeError):
+                    print(f"Invalid time format: {time_str}")
+                    screening.time = None
+                    screening.date = None
+            
+            # Parse ProjectDate (e.g., "2025-06-03T00:00:00")
+            date_str = item.get('date')
+            if date_str and not screening.date:
+                try:
+                    dt = datetime.fromisoformat(date_str.replace('Z', ''))
+                    screening.date = dt.date()
+                except (ValueError, AttributeError):
+                    print(f"Invalid date format: {date_str}")
+
+            screening.language = item.get('language')
+            screening.firstclass = str(item.get('firstClass', ''))
+            screening.cinema_id = str(item.get('cinemaID', ''))
+            screening.film_id = str(item.get('filmID', ''))
+
+            session.add(screening)
+            session.commit()
+            print(f"Successfully saved session: {screening.name} for film: {screening.film_id}")
+
+        except Exception as e:
+            print(f"ERROR in process_rapquocgia_session: {e}")
+            import traceback
+            traceback.print_exc()
+            session.rollback()
+            raise
+        finally:
+            session.close()
+
+        return item
+
+    def process_rapquocgia_theater(self, item):
+        """Process theater items from rapquocgia spider"""
+        print(f"=== PIPELINE: Processing rapquocgia theater item ===")
+        print(f"Theater Name: {item.get('name')}")
+        print(f"Theater Address: {item.get('address')}")
+
+        session = self.Session()
+
+        try:
+            # Check if theater already exists
+            theater_id = item.get('theaterID')
+            existing_theater = session.query(Theater).filter(
+                Theater.theater_id == theater_id
+            ).first()
+
+            if existing_theater:
+                print(f"Theater '{item.get('name')}' already exists in database, updating")
+                # Update existing theater
+                existing_theater.name = item.get('name')
+                existing_theater.location = item.get('address')
+                print(f"Updated existing theater: {existing_theater.name}")
+            else:
+                print(f"Creating new theater: '{item.get('name')}'")
+                theater = Theater()
+                theater.name = item.get('name')
+                theater.location = item.get('address')
+                theater.theater_id = theater_id
+                
+                session.add(theater)
+                print(f"Added new theater: {theater.name}")
+
+            session.commit()
+            print(f"Successfully saved theater: {item.get('name')}")
+
+        except Exception as e:
+            print(f"ERROR in process_rapquocgia_theater: {e}")
+            import traceback
+            traceback.print_exc()
+            session.rollback()
+            raise
+        finally:
+            session.close()
+
         return item
 
     def process_bhd_theater(self, item):
